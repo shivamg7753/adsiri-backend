@@ -32,7 +32,10 @@ const allowedOrigins = [
   'http://localhost:8080',
   'http://127.0.0.1:3000',
   'http://127.0.0.1:8080',
-  'http://172.16.0.2:8080'
+  'http://172.16.0.2:8080',
+  'https://adsiri.in',
+  'https://www.adsiri.in',
+  'https://adsiri.in',
 ];
 
 // CORS configuration - Allow all origins in development
