@@ -63,8 +63,9 @@ router.post('/', [
         timeline,
         status: 'new'
       });
-    } catch (dbError) {
-      console.warn('Database save failed:', dbError.message);
+    } catch (dbError: unknown) {
+      const errorMessage = dbError instanceof Error ? dbError.message : 'Unknown database error';
+      console.warn('Database save failed:', errorMessage);
       // Create a mock contact object for response
       contact = {
         id: Date.now(),

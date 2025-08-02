@@ -84,8 +84,9 @@ const startServer = async () => {
       // Sync database models (create tables if they don't exist)
       await sequelize.sync({ alter: true });
       console.log('✅ Database models synchronized.');
-    } catch (dbError) {
-      console.warn('⚠️ Database connection failed, running without database:', dbError.message);
+    } catch (dbError: unknown) {
+      const errorMessage = dbError instanceof Error ? dbError.message : 'Unknown database error';
+      console.warn('⚠️ Database connection failed, running without database:', errorMessage);
       console.log('📝 Some features may not work without database connection.');
     }
 
